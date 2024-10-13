@@ -1,0 +1,18 @@
+{% extends 'restaurant/base.html' %}
+
+{% block title %}Reserve a Table{% endblock %}
+
+{% block content %}
+<h1>Reserve a Table</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="customer_name">Your Name:</label>
+    <input type="text" id="customer_name" name="customer_name" required><br>
+    <label for="reservation_date">Reservation Date:</label>
+    <input type="datetime-local" id="reservation_date" name="reservation_date" required><br>
+    <label for="table_number">Table Number:</label>
+    <input type="number" id="table_number" name="table_number" required><br>
+    <input type="submit" value="Reserve">
+</form>
+<a href="{% url 'home' %}">Back to Home</a>
+{% endblock %}
